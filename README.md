@@ -1,5 +1,6 @@
 /home
 /login
 /join
+/detail
 /edit
-/plus
+/add
