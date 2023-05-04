@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 <body>
-Home Page
+<h1>Home Page</h1>
 <a href="/login">login</a>
 <a href="/join">Join</a>
 <a href="/add">Add</a>

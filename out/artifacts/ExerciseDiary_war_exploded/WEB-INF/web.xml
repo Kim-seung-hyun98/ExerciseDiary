@@ -18,6 +18,22 @@
         <servlet-name>JoinServlet</servlet-name>
         <servlet-class>servlet.JoinServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>servlet.AddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>servlet.ListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>servlet.EditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MiddleServlet</servlet-name>
+        <servlet-class>servlet.MiddleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -29,5 +45,21 @@
     <servlet-mapping>
         <servlet-name>JoinServlet</servlet-name>
         <url-pattern>/join</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/list/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MiddleServlet</servlet-name>
+        <url-pattern>/middle</url-pattern>
     </servlet-mapping>
 </web-app>

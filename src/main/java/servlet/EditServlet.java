@@ -4,17 +4,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-public class AddServlet extends HttpServlet {
+public class EditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/add.jsp").forward(request, response);
+        request.getRequestDispatcher("/edit.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String context = request.getParameter("context");
-        System.out.println("context = " + context);
 
-        response.sendRedirect("/home");
     }
 }

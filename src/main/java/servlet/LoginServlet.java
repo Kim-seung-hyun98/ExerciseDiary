@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 
         System.out.println("userId = " + userId);
         System.out.println("userPw = " + userPw);
-
-        response.sendRedirect("/home");
+        //userId, userPw 같이보냄
+        response.sendRedirect("/login-proc");
     }
 }
