@@ -12,7 +12,7 @@
 </head>
 <body>
 login Page
-<form method="post">
+<form method="post" action="/login">
   <input type="text" placeholder="id" name="userId"><br>
   <input type="password" placeholder="pw" name="userPw"><br>
   <input type="submit" value="log in">
