@@ -12,7 +12,7 @@
 </head>
 <body>
 Join Page
-<form method="post">
+<form method="post" action="/join">
   <input type="text" placeholder="id" name="userId"><br>
   <input type="password" placeholder="pw" name="userPw"><br>
   <input type="passwordRe" placeholder="pw" name="userPwRe"><br>
