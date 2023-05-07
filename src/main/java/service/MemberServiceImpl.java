@@ -5,7 +5,6 @@ import repository.MemberRepository;
 import repository.MemberRepositoryImpl;
 
 import java.util.List;
-import java.util.Optional;
 
 public class MemberServiceImpl implements MemberService {
     MemberRepository memberRepository = new MemberRepositoryImpl();
@@ -22,13 +21,14 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void validateDuplicateMember(Member member) {
-        memberRepository.findByUserId(member.getUserId()).ifPresent(m -> {
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
-        });
+        Member findMember = memberRepository.findByUserId(member.getUserId());
+        if (findMember != null) {
+            throw new IllegalStateException("이미 존재하는 회원입니다");
+        }
     }
 
     @Override
-    public Optional<Member> findMember(String userId) {
+    public Member findMember(String userId) {
         return memberRepository.findByUserId(userId);
     }
 }

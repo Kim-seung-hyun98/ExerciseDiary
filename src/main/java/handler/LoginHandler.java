@@ -1,5 +1,6 @@
 package handler;
 
+import domain.Member;
 import service.MemberService;
 import service.MemberServiceImpl;
 
@@ -13,14 +14,15 @@ public class LoginHandler extends HttpServlet implements CommandHandler{
     MemberService memberService = new MemberServiceImpl();
     @Override
     public String handlerAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        return "/WEB-INF/view/login.jsp";
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userId = req.getParameter("userId");
-        String userPw = req.getParameter("userPw");
-        memberService.findMember(userId);
-        resp.sendRedirect("/home");
+        String userId = request.getParameter("userId");
+        String userPw = request.getParameter("userPw");
+        if(userId == null || userPw == null){
+            return "/WEB-INF/view/login.jsp";
+        }
+        Member member = memberService.findMember(userId);
+        if (member == null) {
+            return "/WEB-INF/view/login.jsp";
+        }
+        return "/WEB-INF/view/home.jsp";
     }
 }

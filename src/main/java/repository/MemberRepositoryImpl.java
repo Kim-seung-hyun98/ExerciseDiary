@@ -16,8 +16,8 @@ public class MemberRepositoryImpl implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> findByUserId(String userId) {
-        return Optional.ofNullable(store.get(userId));
+    public Member findByUserId(String userId) {
+        return store.get(userId);
     }
 
     @Override

@@ -14,23 +14,17 @@ public class JoinHandler extends HttpServlet implements CommandHandler{
     MemberService memberService = new MemberServiceImpl();
     @Override
     public String handlerAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        return "/WEB-INF/view/join.jsp";
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userId = req.getParameter("userId");
-        String userPw = req.getParameter("userPw");
-        String userPwRe = req.getParameter("userPwRe");
-        System.out.println("userPw = " + userPw);
-        System.out.println("userPwRe = " + userPwRe);
-        if(userPw.equals(userPwRe)){
-            Member member = new Member();
-            member.setUserId(userId);
-            memberService.join(member);
-            System.out.println("회원가입 성공");
-            resp.sendRedirect("/home");
+        String userId = request.getParameter("userId");
+        String userPw = request.getParameter("userPw");
+        if(userId == null || userPw == null){
+            return "/WEB-INF/view/join.jsp";
         }
-        resp.sendRedirect("/join");
+        System.out.println("userId = " + userId);
+        System.out.println("userPw = " + userPw);
+        Member member = new Member();
+        member.setUserId(userId);
+        member.setUserPw(userPw);
+        memberService.join(member);
+        return "/WEB-INF/view/home.jsp";
     }
 }
