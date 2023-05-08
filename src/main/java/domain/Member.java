@@ -1,7 +1,6 @@
 package domain;
 
 public class Member {
-    private Long id;
     private String userId;
     private String userPw;
 
@@ -19,13 +18,5 @@ public class Member {
 
     public void setUserPw(String userPw) {
         this.userPw = userPw;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

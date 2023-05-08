@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -60,7 +61,11 @@ public class FrontController extends HttpServlet {
         String viewPage = null;
         if (requestURI.indexOf(req.getContextPath()) == 0) {
             handler = commandHandlerMap.get(requestURI);
-            viewPage = handler.handlerAction(req, resp);
+            try {
+                viewPage = handler.handlerAction(req, resp);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
         }
         req.getRequestDispatcher(viewPage).forward(req, resp);
     }

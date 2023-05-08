@@ -16,15 +16,16 @@ public class JoinHandler extends HttpServlet implements CommandHandler{
     public String handlerAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
         String userPw = request.getParameter("userPw");
-        if(userId == null || userPw == null){
+        String userPwRe = request.getParameter("userPwRe");
+        if(userId == null && userPw == null){
             return "/WEB-INF/view/join.jsp";
         }
-        System.out.println("userId = " + userId);
-        System.out.println("userPw = " + userPw);
-        Member member = new Member();
-        member.setUserId(userId);
-        member.setUserPw(userPw);
-        memberService.join(member);
+        try {
+            memberService.join(userId,userPw,userPwRe);
+        }catch (IllegalStateException e){
+            request.setAttribute("error",e.getMessage());
+            return "/WEB-INF/view/join.jsp";
+        }
         return "/WEB-INF/view/home.jsp";
     }
 }

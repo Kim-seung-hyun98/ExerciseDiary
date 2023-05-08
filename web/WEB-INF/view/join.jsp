@@ -11,11 +11,12 @@
     <title>Join</title>
 </head>
 <body>
-Join Page
+<h1>Join Page</h1>
+${error}
 <form method="post" action="/join">
-  <input type="text" placeholder="id" name="userId"><br>
-  <input type="password" placeholder="pw" name="userPw"><br>
-  <input type="passwordRe" placeholder="pw" name="userPwRe"><br>
+  <input type="text" placeholder="id" name="userId" required><br>
+  <input type="password" placeholder="pw" name="userPw" required><br>
+  <input type="password" placeholder="pw" name="userPwRe" required><br>
   <input type="submit" value="Join">
 </form>
 </body>

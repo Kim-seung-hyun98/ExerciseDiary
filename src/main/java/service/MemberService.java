@@ -5,8 +5,9 @@ import domain.Member;
 import java.util.List;
 
 public interface MemberService {
-    void join(Member member);
+    void join(String userId,String userPw,String userPwRe);
     List<Member> findMembers();
     Member findMember(String userId);
-    void validateDuplicateMember(Member member);
+
+    void login(String userId, String userPw);
 }

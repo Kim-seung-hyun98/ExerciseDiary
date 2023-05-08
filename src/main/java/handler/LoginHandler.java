@@ -14,15 +14,18 @@ public class LoginHandler extends HttpServlet implements CommandHandler{
     MemberService memberService = new MemberServiceImpl();
     @Override
     public String handlerAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userId = request.getParameter("userId");
         String userPw = request.getParameter("userPw");
-        if(userId == null || userPw == null){
+        String userId = request.getParameter("userId");
+        if(userId == null && userPw == null){
             return "/WEB-INF/view/login.jsp";
         }
-        Member member = memberService.findMember(userId);
-        if (member == null) {
+        try {
+            memberService.login(userId, userPw);
+        }catch (IllegalStateException e){
+            request.setAttribute("error", e.getMessage());
             return "/WEB-INF/view/login.jsp";
         }
+
         return "/WEB-INF/view/home.jsp";
     }
 }

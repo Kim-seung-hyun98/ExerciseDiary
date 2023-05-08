@@ -2,15 +2,16 @@ package repository;
 
 import domain.Member;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class MemberRepositoryImpl implements MemberRepository {
     private static Map<String,Member> store = new HashMap<>();
-    private static long sequence = 0L;
-
     @Override
     public Member save(Member member) {
-        member.setId(++sequence);
+        System.out.println(member.getUserPw());
         store.put(member.getUserId(),member);
         return member;
     }

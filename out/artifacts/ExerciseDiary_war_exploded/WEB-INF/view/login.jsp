@@ -11,7 +11,8 @@
     <title>login</title>
 </head>
 <body>
-login Page
+<h1>login Page</h1>
+${error}
 <form method="post" action="/login">
   <input type="text" placeholder="id" name="userId"><br>
   <input type="password" placeholder="pw" name="userPw"><br>
